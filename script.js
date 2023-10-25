@@ -1,8 +1,18 @@
-// Add parallax effect
-window.addEventListener("scroll", () => {
-    const parallaxSections = document.querySelectorAll(".parallax");
-    parallaxSections.forEach(section => {
-        const yPos = -(window.scrollY * 0.4);
-        section.style.backgroundPosition = `50% ${yPos}px`;
-    });
-});
+let sections = document.querySelectorAll('section');
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+
+        if (top => offset && top < offset + height) {
+            sec.classList.add('show-animate');
+        }
+        else {
+            sec.classList.remove('show-animate')
+        }
+    })
+}
+
+// https://www.youtube.com/watch?v=r1wDGIKmX6s&ab_channel=Codehal
