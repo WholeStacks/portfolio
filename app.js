@@ -63,12 +63,12 @@ function setDirection(value) {
   }
 }
 
-Observer.create({
-  target: window,
-  type: "wheel,scroll,touch",
-  onDown: () => setDirection(1),
-  onUp: () => setDirection(-1)
-})
+// Observer.create({
+//   target: window,
+//   type: "wheel,scroll,touch",
+//   onDown: () => setDirection(1),
+//   onUp: () => setDirection(-1)
+// })
 
 
 // Helper function
