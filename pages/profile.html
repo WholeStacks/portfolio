@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        /* start css here */
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+        .text-container {
+            animation-name: contentAnimation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            justify-content: center;
+            align-items: center;
+            width: 45%;
+            height: auto;
+            margin-top: 20rem;
+        }
+
+        .text-content {
+            color: orange;
+        }
+
+        p {
+            word-wrap: break-word;
+        }
+
+        @keyframes contentAnimation {
+            0% {
+                opacity: 0;
+                transform: translateX(0%);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateX(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <p class="text-content">I am a maker. Creating things is always my passion. I am also an electronic engineer with a real interest in technology. 
+            I believe that if science is the cumulative wisdom of human since the beginning, then technology is the most elegant yet practical representation 
+            of those wisdoms. I love the art of engineering, the ability to create something  from hardware to software fascinates me every single time. Some 
+            might say reinventing the wheel is a waste of time, but I enjoy the process of discovering the makings of the wheel. I never plan to stop learning, 
+            so my motto is "keep learning and never stop building".
+        </p>
+        <p class="text-content">Fueled by my passion, I managed to learn a wide range of skills, refer to my skillsets here (insert link to skillset here). </p>
+    </div>
+
+    <script>
+        // start javascript here
+
+    </script>
+</body>
+</html>

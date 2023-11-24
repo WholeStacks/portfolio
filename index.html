@@ -10,28 +10,36 @@
 <body>
     <div class="top-carousel-wrapper">
         <div class="top-carousel-container">
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
-            <div class="image-top"></div>
+            <div class="image-top"><img src="assets/profile_img.jpg" draggable = "false"></div>
+            <div class="image-top"><img src="assets/skills_img.jpg" draggable = "false"></div>
+            <div class="image-top"><img src="assets/services_img.jpg" draggable = "false"></div>
+            <div class="image-top"><img src="assets/contact_img.jpg" draggable = "false"></div>
         </div> 
     </div>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-        <img class="image" src="/assets/profile_img.jpg" draggable = "false"/>
-        <img class="image" src="/assets/projects_img.jpg" draggable = "false" />
-        <img class="image" src="/assets/services_img.jpg" draggable = "false" />
-        <img class="image" src="/assets/contact_img.jpg" draggable = "false"/>
-        <img class="image" src="/assets/skillset_img.jpg" draggable = "false"/>
+        <div>
+            <img class="image" id="profile_img" src="/assets/profile_img.jpg" draggable = "false" onmouseenter="showTitle('About me')" onmouseleave="showTitle('')" onclick="userClick('pages/profile.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/skills_img.jpg" draggable = "false" onmouseenter="showTitle('Skillset')" onmouseleave="showTitle('')" onclick="userClick('pages/skillset.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/services_img.jpg" draggable = "false" onmouseenter="showTitle('Services')" onmouseleave="showTitle('')" onclick="userClick('pages/services.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/contact_img.jpg" draggable = "false" onmouseenter="showTitle('Contact')" onmouseleave="showTitle('')" onclick="userClick('pages/contact.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/projects_img.jpg" draggable = "false" onmouseenter="showTitle('Projects')" onmouseleave="showTitle('')" onclick="userClick('pages/projects.html')"/>
+        </div>
+    </div>
+    <div class="information-wrapper">
+        <h1 id="information">Drag your cursor to the left</h1>
+    </div>
+    <div class="description-wrapper">
+        <h2 id="description"></h2>
     </div>
 
     <script src="app.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Observer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
 </body>
 </html>
