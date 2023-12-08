@@ -8,17 +8,9 @@
 </head>
 
 <body>
-    <div class="top-carousel-wrapper">
-        <div class="top-carousel-container">
-            <div class="image-top"><img src="assets/profile_img.jpg" draggable = "false"></div>
-            <div class="image-top"><img src="assets/skills_img.jpg" draggable = "false"></div>
-            <div class="image-top"><img src="assets/services_img.jpg" draggable = "false"></div>
-            <div class="image-top"><img src="assets/contact_img.jpg" draggable = "false"></div>
-        </div> 
-    </div>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
         <div>
-            <img class="image" id="profile_img" src="/assets/profile_img.jpg" draggable = "false" onmouseenter="showTitle('About me')" onmouseleave="showTitle('')" onclick="userClick('pages/profile.html')"/>
+            <img class="image" src="/assets/profile_img.jpg" draggable = "false" onmouseenter="showTitle('About me')" onmouseleave="showTitle('')" onclick="userClick('pages/profile.html')"/>
         </div>
         <div>
             <img class="image" src="/assets/skills_img.jpg" draggable = "false" onmouseenter="showTitle('Skillset')" onmouseleave="showTitle('')" onclick="userClick('pages/skillset.html')"/>
@@ -29,12 +21,18 @@
         <div>
             <img class="image" src="/assets/contact_img.jpg" draggable = "false" onmouseenter="showTitle('Contact')" onmouseleave="showTitle('')" onclick="userClick('pages/contact.html')"/>
         </div>
-        <div>
-            <img class="image" src="/assets/projects_img.jpg" draggable = "false" onmouseenter="showTitle('Projects')" onmouseleave="showTitle('')" onclick="userClick('pages/projects.html')"/>
+        <div class="image" id="inter-text">
+            Showcase <br>Area<br> &rarr;
         </div>
-    </div>
-    <div class="information-wrapper">
-        <h1 id="information">Drag your cursor to the left</h1>
+        <div>
+            <img class="image" src="/assets/scroll_img.jpg" draggable = "false" onmouseenter="showTitle('Fancy Scrolling')" onmouseleave="showTitle('')" onclick="userClick('pages/fancyscrolling.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/3d_img.jpg" draggable = "false" onmouseenter="showTitle('3D Effect')" onmouseleave="showTitle('')" onclick="userClick('pages/3d.html')"/>
+        </div>
+        <div>
+            <img class="image" src="/assets/animation_img.jpg" draggable = "false" onmouseenter="showTitle('Animation')" onmouseleave="showTitle('')" onclick="userClick('pages/animation.html')"/>
+        </div>
     </div>
     <div class="description-wrapper">
         <h2 id="description"></h2>

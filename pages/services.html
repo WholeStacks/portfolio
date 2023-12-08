@@ -4,7 +4,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services</title>
 </head>
+<style>
+    body {
+        width: 100vw;
+        /* height: 100vh; */
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(../assets/services.jpg);
+        background-size: cover;
+        overflow: hidden;
+        gap: 1vh;        
+        animation-name: backgroundChange;
+        animation-duration: 2s;
+    }
+
+    @keyframes backgroundChange {
+        0% {
+            background-image: url(../assets/black.jpg);
+        }
+        100% {
+            background-image: url(../assets/services.jpg);
+        }
+    }
+
+    .text-container {
+        color: #75FFFF;
+        width: 30%;
+        height: auto;
+        margin-top: 20vh;
+        padding: 1rem;
+        text-align: justify;
+        background-color: rgba(0, 0, 0, 0.65);
+        border-radius: 16px;
+        border-style: solid;
+        border-color: #75FFFF;
+        animation-name: contentAnimation;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vh;
+        font-family: monospace;
+    }
+
+    @keyframes contentAnimation {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+
+    .text-link {
+        color: orange;
+    }
+
+    #home-button {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        margin: 1rem;
+        font-size: 2rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    #home-button h2 {
+        color: #75FFFF;
+        position: absolute;
+    }
+
+    #home-button h2:nth-child(1) {
+        color: transparent;
+        -webkit-text-stroke: 2px #75FFFF;
+    }
+
+    #home-button h2:nth-child(2) {
+        color: #75FFFF;
+        animation: animate 4s ease-in-out infinite;
+    }
+
+    @keyframes animate {
+        0%,
+        100% {
+            clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+            );
+        }
+
+        50% {
+            clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    }
+
+    .service-name:hover {
+        cursor: default;
+    }
+
+</style>
 <body>
-    Services offered
+    <div class="home">
+        <a href="../index.html" class="text-link">
+            <div id="home-button">
+                <h2>Home</h2>
+                <h2>Home</h2>
+            </div>
+        </a>
+    </div>
+    <div class="text-container">
+        <p id="intro" data-value="My services include:">My services includes</p>
+        <ul>
+            <li class="service-name" id="webdev" data-value="Web development">Web development</li>
+            <li class="service-name" id="webdesign" data-value="Website redesign">Website redesign</li>
+            <li class="service-name" id="webcustom" data-value="Website customization">Website customization</li>
+            <li class="service-name" id="software" data-value="Customized software">Customized software</li>
+            <li class="service-name" id="firmware" data-value="Embedded firmware development">Embedded firmware development</li>
+        </ul>
+        <p>
+            Interested? Contact me <a href="contact.html" class="text-link">here</a> to know more. 
+            <!-- <span id="fun-animation">There is nothing here</span> -->
+        </p>
+    </div>
+    <script>
+        let interval = null;
+        const intro = document.querySelector("#intro");
+        const list1 = document.querySelector("#webdev");
+        const list2 = document.querySelector("#webdesign");
+        const list3 = document.querySelector("#webcustom");
+        const list4 = document.querySelector("#software");
+        const list5 = document.querySelector("#firmware");
+        const fun_animation = document.querySelector("#fun-animation");
+        window.addEventListener("load", myInit, true); 
+        function myInit() 
+            {
+                fancyText();
+            }; 
+        function fancyText() {
+            function changeText(element) {
+            let iteration = 0;
+            const intervalTime = 30;
+            const speed = 1 / 3;
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ:'.split('');
+            const interval = setInterval(() => {
+                element.innerText = element.innerText.split("").map((letter, index) => {
+                    if(index < iteration) {
+                        return element.dataset.value[index];
+                    }
+                    return letters[Math.floor(Math.random() * 27)]
+                }).join("");
+                if(iteration >= element.dataset.value.length){ 
+                    clearInterval(interval);
+                }
+                iteration += speed;
+                }, intervalTime);
+            }
+            changeText(intro);
+            changeText(list1);
+            changeText(list2);
+            changeText(list3);
+            changeText(list4);
+            changeText(list5);
+            // changeText(fun_animation);
+        }
+    </script>
 </body>
 </html>

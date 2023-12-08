@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --background-rgb: 15 15 15;          
+            --blue-rgb: 33 150 243;
+            --primary-rgb: var(--blue-rgb);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .screen {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(var(--primary-rgb) /15%);
+            overflow: hidden;
+            position: relative;
+            animation: appear 0.4s linear;
+        }
+
+        @keyframes appear {
+            from {
+                width: 1vw;
+                
+            }
+            to {
+                width: 100vw;
+            }
+        }
+
+        .screen-overlay {
+            background: linear-gradient(
+                rgb(var(--primary-rgb) / 0.15),
+                rgb(var(--primary-rgb) / 0.15) 3px,
+                transparent 3px,
+                transparent 9px
+            );
+            height: 100%;
+            width: 100%;
+            animation: pan-overlay 22s infinite linear;
+            background-size: 100% 9px;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+        }
+
+        .screen > img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+
+        @keyframes pan-overlay {
+            from {
+                background-position: 0% 0%;
+            }
+
+            to {
+                background-position: 0% -100%;
+            }
+        }
+
+        .screen > .screen-image {
+            background-image: url("../assets/neon.jpg");
+            height: 100%;
+            width: 100%;
+            background-size: 300%;
+            background-position: center;
+            /* filter: sepia(100%) hue-rotate(160deg); */
+            opacity: 0.6;
+            animation: pan-image 15s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes pan-image {  
+            0% {
+                background-position: 36% 42%;
+                background-size: 200%;
+                opacity: 0;
+            }
+            
+            20% {
+                background-position: 30% 35%;
+                background-size: 200%;
+                opacity: 0.6;
+            }
+            
+            20.0001% { /* -- View 2 -- */
+                background-position: 60% 85%;
+                background-size: 500%;
+            }
+            
+            40% {
+                background-position: 49% 81%;
+                background-size: 500%;
+            }
+            
+            40.0001% { /* -- View 3 -- */
+                background-position: 80% 42%;
+                background-size: 300%;
+            }
+            
+            60% {
+                background-position: 84% 33%;
+                background-size: 300%;
+            }
+            
+            60.0001% { /* -- View 4 -- */
+                background-position: 0% 0%;
+                background-size: 300%;
+            }
+            
+            80% {
+                background-position: 15% 4%;
+                background-size: 300%;
+            }
+            
+            80.0001% { /* -- View 5 -- */
+                background-position: 80% 10%;
+                background-size: 300%;
+            }
+            
+            100% {
+                background-position: 72% 14%;
+                background-size: 300%;
+            }
+        }
+        
+        .screen-content {
+            text-align: center;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="screen-image"></div>
+        <div class="screen-overlay"></div>
+        <div class="screen-content">Test content</div>
+    </div>
+</body>
+</html>

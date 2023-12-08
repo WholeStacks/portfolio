@@ -1,13 +1,12 @@
-* { 
-  padding: 0; margin: 0; 
-}
-
 body {
   height: 100vh;
   width: 100vw;
-  background-color: black;
+  background-color: #191c29;
+  background-size: cover;
   margin: 0rem;
   overflow: hidden;
+  transition: 1s;
+  cursor: all-scroll;
 }
 
 .text {
@@ -15,47 +14,12 @@ body {
   text-align: center;
 }
 
-.top-carousel-wrapper {
-  height: 200px;
-  margin: auto;
-  position: relative;
-  width: 90%;
-}
-
-.top-carousel-container {
-  display: flex;
-  width: calc(250px * 18);
-  animation: scroll 40s linear infinite;
-}
-
-.top-carousel-container:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-250px * 18));
-  }
-}
-
-.image-top {
-  height: 10%;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  user-select: none;
-}
-
 #image-track {
-  margin: 2rem;
+  margin: 1rem;
   display: flex;
-  gap: 2vmin;
+  gap: 1rem;
   position: absolute;
-  left: 10%;
+  left: 30%;
   top: 50%;
   transform: translate(0%, -50%);
   user-select: none;
@@ -68,46 +32,50 @@ body {
   object-position: 100% center;
   transition: all 0.5s ease-in-out;
   user-select: none;
+  border-radius: 16px;
+}
+
+#inter-text {
+  font-size: 3vw;
+  text-align: center;
+  color: orange;
+  padding-top: 5%;
+}
+
+.image-info {
+  width: 30vmin;
+  height: 42vmin;
+  object-fit: cover;
+  object-position: center center;
+  user-select: none;
 }
 
 .image-active {
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 
 img {
+  opacity: 0.7;
   transition: 0.2s;
   width: 100%;
 }
 
 .image:hover {
-  transform: scale(1.16);
-}
-
-.information-wrapper {
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition:0.6s;
-  user-select: none;
-  color: teal;
-}
-
-.information-wrapper:hover {
   opacity: 1;
 }
 
 .description-wrapper {
+  margin-top: 4vh;
   position: absolute;
   left: 0;
   right: 0;
   text-align: center;
-  color: orange;
+  color: #75FFFF;
 }
 
 #description {
-  font-size: 56px;
+  font-size: 3vw;
   font-family: 'Palatino Linotype';
+  /* background-color: rgba(0, 0, 0, 0.7); */
 }

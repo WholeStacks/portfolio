@@ -4,48 +4,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <style>
-        * { padding: 0; margin: 0; }
-        img {
-            object-fit: cover;
-            width: 30%;
-            height: 30%;
-            object-position: center center;
-            transition: 1s;
-            overflow: hidden;
+        :root {
+            --background-rgb: 15 15 15;          
+            --blue-rgb: 33 150 243;
+            --primary-rgb: var(--blue-rgb);
         }
 
-        /* img:hover {
-            width: 100%;
-            height: 100%;
-        } */        
+        * {margin: 0; padding: 0;}
 
+        /* body {
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        } */
+
+        .screen {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(var(--primary-rgb) /15%);
+            overflow: hidden;
+            position: relative;
+            animation: appear 0.4s linear;
+        }
+
+        @keyframes appear {
+            from {
+                width: 1vw;
+            }
+            to {
+                width: 100vw;
+            }
+        }
+
+        .screen-layer {
+            background: linear-gradient(
+                rgb(var(--primary-rgb) / 0.15),
+                rgb(var(--primary-rgb) / 0.15) 3px,
+                transparent 3px,
+                transparent 9px
+            );
+            height: 100%;
+            width: 100%;
+            animation: pan-overlay 22s infinite linear;
+            background-size: 100% 9px;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 0px;
+        }
+
+        .screen > img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes pan-overlay {
+            from {
+                background-position: 0% 0%;
+            }
+
+            to {
+                background-position: 0% -100%;
+            }
+        }
+
+        .screen > .screen-image {
+            background-image: url("../assets/neon.jpg");
+            height: 100%;
+            width: 100%;
+            background-size: 300%;
+            background-position: center;
+            opacity: 0.6;
+            animation: pan-image 15s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes pan-image {  
+            0% {
+                background-position: 36% 42%;
+                background-size: 200%;
+                opacity: 0;
+            }
+            
+            20% {
+                background-position: 30% 35%;
+                background-size: 200%;
+                opacity: 0.6;
+            }
+            
+            20.0001% { /* -- View 2 -- */
+                background-position: 60% 85%;
+                background-size: 500%;
+            }
+            
+            40% {
+                background-position: 49% 81%;
+                background-size: 500%;
+            }
+            
+            40.0001% { /* -- View 3 -- */
+                background-position: 80% 42%;
+                background-size: 300%;
+            }
+            
+            60% {
+                background-position: 84% 33%;
+                background-size: 300%;
+            }
+            
+            60.0001% { /* -- View 4 -- */
+                background-position: 0% 0%;
+                background-size: 300%;
+            }
+            
+            80% {
+                background-position: 15% 4%;
+                background-size: 300%;
+            }
+            
+            80.0001% { /* -- View 5 -- */
+                background-position: 80% 10%;
+                background-size: 300%;
+            }
+            
+            100% {
+                background-position: 72% 14%;
+                background-size: 300%;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+
+        .text-container {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 3vw;
+            color: #75FFFF;
+            width: 50%;
+            height: auto;
+            margin-top: 30vh;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 1rem;
+        }
+
+        #header-text {
+            animation-name: headerAnimation;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes headerAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        #email {
+            animation-name: contentAnimation;
+            animation-duration: 2.5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes contentAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        /* .home {
+            margin-top: 2rem;
+        } */
+
+        #home-button {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            margin: 1rem;
+            font-size: 2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        #home-button h2 {
+            color: #75FFFF;
+            position: absolute;
+        }
+
+        #home-button h2:nth-child(1) {
+            color: transparent;
+            -webkit-text-stroke: 2px #75FFFF;
+        }
+
+        #home-button h2:nth-child(2) {
+            color: #75FFFF;
+            animation: animate 4s ease-in-out infinite;
+        }
+
+        @keyframes animate {
+            0%,
+            100% {
+                clip-path: polygon(
+                    0% 45%,
+                    16% 44%,
+                    33% 50%,
+                    54% 60%,
+                    70% 61%,
+                    84% 59%,
+                    100% 52%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+
+            50% {
+                clip-path: polygon(
+                    0% 60%,
+                    15% 65%,
+                    34% 66%,
+                    51% 62%,
+                    67% 50%,
+                    84% 45%,
+                    100% 46%,
+                    100% 100%,
+                    0% 100%
+                );
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <!-- My contact information -->
-        <img id="profiles_img" class="image_class" src="../assets/profiles_img.jpg" alt="">
-        <img id="projects_img" class="image_class" src="../assets/projects_img.jpg" alt="">
-        <img id="contacts_img" class="image_class" src="../assets/contacts_img.jpg" alt="">
+    <div class="screen">
+        <div class="screen-image"></div>
+        <div class="screen-layer"></div>
+        <div class="content">
+            <div class="home">
+                <a href="../index.html" class="text-link">
+                    <div id="home-button">
+                        <h2>Home</h2>
+                        <h2>Home</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="text-container">
+                <h3 id="header-text">
+                    GET IN TOUCH
+                </h3>
+                <p id="email">
+                    faustino.ng94@gmail.com
+                </p>
+            </div>
+        </div>
     </div>
     <script>
-        const profiles_img = document.getElementById("profiles_img");
-        const contacts_img = document.getElementById("contacts_img")
-        const projects_img = document.getElementById("projects_img");
-        const image_class = document.getElementsByClassName("image_class");
-        profiles_img.addEventListener("mouseover", function(event){
-            profiles_img.style.height = "100%";
-            profiles_img.style.width = "100%";
-            contacts_img.style.display = "none";
-            projects_img.style.display = "none";
-        })
-
-        profiles_img.addEventListener("mouseout", function(event){
-            profiles_img.style.height = "30%";
-            profiles_img.style.width = "30%";
-            contacts_img.style.display = "inline";
-            projects_img.style.display = "inline";
-        })
+        let i = 9;
     </script>
 </body>
 </html>
