@@ -2,16 +2,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation</title>
+    <title>Scroll Demo</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: black;
+            height: 400vh;
+        }
+        .container {
+            color: white;
+        }
+        #demo1 {
+            border-style: solid;
+            border-color: white;
+            width: 25%;
+            font-size: 4vw;
+            text-align: center;
+            margin: auto;
+            position: fixed;
+            left: 38%;
+            top: 45%;
+            opacity: 0;
+        }
+        #demo2 {
+            border-style: solid;
+            border-color: black;
+            width: 25%;
+            font-size: 4vw;
+            text-align: center;
+            margin: auto;
+            position: fixed;
+            left: 38%;
+            top: 45%;
+            opacity: 0;
+            color: black;
+        }
+        #demo3 {
+            border-style: solid;
+            border-color: white;
+            width: 25%;
+            font-size: 4vw;
+            text-align: center;
+            margin: auto;
+            position: fixed;
+            left: 38%;
+            top: 45%;
+            opacity: 0;
+        }
+        #demo4 {
+            border-style: solid;
+            border-color: black;
+            width: 25%;
+            font-size: 4vw;
+            text-align: center;
+            margin: auto;
+            position: fixed;
+            left: 38%;
+            top: 45%;
+            opacity: 0;
+            color: black
+        }
+        #demo5 {
+            border-style: solid;
+            border-color: white;
+            width: 25%;
+            font-size: 4vw;
+            text-align: center;
+            margin: auto;
+            position: fixed;
+            left: 38%;
+            top: 45%;
+            opacity: 0;
         }
     </style>
 </head>
 <body>
-    Coming Soon
+    <div class="container">
+        <div id="demo1">
+            Demo-page1
+        </div>
+        <div id="demo2">
+            Demo-page2
+        </div>
+        <div id="demo3">
+            Demo-page3
+        </div>
+        <div id="demo4">
+            Demo-page4
+        </div>
+        <div id="demo5">
+            Demo-page5
+        </div>
+        <div style="break-after:page"></div>
+    </div>
+    <script>
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+        function doSomething(scrollPos) {
+            // Do something with the scroll position
+            console.log(scrollPos);
+            let demo1 = document.getElementById("demo1");
+            demo1.style.opacity = ((scrollPos * -0.00166667) + 1);
+            demo1.style.scale = (0.005*scrollPos);
+            demo2.style.opacity = ((scrollPos * -0.00166667) + 2);
+            demo2.style.scale = Math.max(0, ((0.005*scrollPos) - 3));
+            demo3.style.opacity = ((scrollPos * -0.00166667) + 3);
+            demo3.style.scale = Math.max(0, ((0.005*scrollPos) - 6));
+            demo4.style.opacity = ((scrollPos * -0.00166667) + 4);
+            demo4.style.scale = Math.max(0, ((0.005*scrollPos) - 9));
+            demo5.style.opacity = 1
+            demo5.style.scale = Math.max(0, ((0.005*scrollPos) - 12));
+            if (scrollPos < 600 || (scrollPos > 1200 && scrollPos < 1800) || scrollPos > 2400) {
+                document.body.style.backgroundColor = "black";
+            }
+            if ((scrollPos > 600 && scrollPos < 1200) || (scrollPos > 1800 && scrollPos < 2400) || scrollPos > 3000) {
+                document.body.style.backgroundColor = "white";
+            }
+        }
+        document.addEventListener("scroll", (event) => {
+            lastKnownScrollPosition = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    doSomething(lastKnownScrollPosition);
+                    ticking = false;
+                });
+            ticking = true;
+            }
+        });
+    </script>
 </body>
 </html>
